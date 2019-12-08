@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Hard Surface Topology
+  </title>
+  <meta name="description" content="ASSIGNMENT DESC">
+  <meta name="author" content="YOUR NAME">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+	<div class="wrapper">
+		<header>
+      <h1>Hard Surface Topology</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#" class="current">Intro</a></li>
+          <li><a href="reference.html">Reference</a></li>
+          <li><a href="exercises.html">Exercises</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="hero-image image2">
+        <p class="credit">&copy; 2013 Grant Warwick</p>
+    </div>
+    <article>
+      <h1>Introduction to Subdivision Modelling</h1>
+      <p>Subdivision modelling is one of those things that's very simple in principle but takes a little while to become accustomed to. If you don't think ahead you can paint yourself into a corner and need to backtrack to get your mesh to act the way you want it to.</p>
+      <div class="entry align-right">
+          <a  href="images/introduction-1.jpg" target="_blank">
+          <figure>
+            <img src="images/introduction-1.jpg" alt="Comparison of cube with hard edges and a cube with rounded edges."/>
+            <figcaption>The rounded edges add significant depth compared to the sharp edges.</figcaption>
+          </figure>
+          </a>
+        </div>
+      <p>
+        The entire basis of this modelling is this; in real life, almost no corners are infinitely sharp. There may be some instances of precision machined metal, or razor edges, but by and large everything has rounded edges. When you create a corner out of 2 flat polygons in a 3D renderer, the edge is infinitely sharp. The result of this is renders that look inherently unrealistic, and generally less interesting than the real thing. It's just impossible for unrealistically sharp edges like this to catch and reflect light the way that a real object would.
+     </p>
+     <p>
+        This is where subdivision modelling comes in. Subdividing a mesh is a method by which the mesh is algorithmically smoothed by creating more geometry following a specific set of rules that allows you to have a low polygon control mesh that is easy to edit, animate and store, while still being able to generate a consistent, smooth looking high polygon mesh for final rendering, or normal/AO map generation. Sculpted and decimated meshes are still the best option for organic meshes that require a lot of geometric detail, in a lot of cases a simple, subdivided mesh with advanced materials and shaders is a better use of both man and CPU time. Though Zbrush’s shadowbox and similar tools can be excellent for prototyping and blocking out shapes during the planning phase.
+     </p>
+    </article>
+    <div class="entry">
+        <a  href="images/subdivision-step-1.png" target="_blank">
+          <figure>
+            <img src="images/subdivision-step-1.png" alt="Diagram showing 2 lines forming a 90 degree angle."/>
+            <figcaption>Starting with a simple hardge edge, 2 lines meeting at 90&deg;.</figcaption>
+          </figure>
+        </a>
+      </div>
+      <div class="entry">
+        <a href="images/subdivision-step-2.png" target="_blank">
+          <figure>
+            <img src="images/subdivision-step-2.png" alt="Diagram of step 1 of subdivision, dividing the 2 perpendicular lines, and calculating the bisector of the new vertices and the angle."/>
+            <figcaption>A vertex is added to the midpoint of each line, and the bisector calculated.</figcaption>
+          </figure>
+        </a>
+      </div>
+      <div class="entry">
+        <a href="images/subdivision-step-3.png" target="_blank">
+          <figure>
+            <img src="images/subdivision-step-3.png" alt="Diagram of step 2 of subdivision, moving the original angle vertex to the position midway down the bisector line."/>
+            <figcaption>A original point is shifted to the center of the bisector.</figcaption>
+          </figure>
+        </a>
+      </div>
+      <article>
+     <p>
+       The entire process of subdividing can be explained with these images, extrapolated into 3 dimensions and with multiple vertices and edges. It takes 2 adjacent lines (or surfaces in 3D), adds 2 vertices to the middle of those edges, and moves the original point to the averaged position of the new line, and the original point. This is by far the best way to control smoothly curved surfaces, with minimal geometry.</p>
+       <div class="entry align-left">
+          <a  href="images/introduction-2.png" target="_blank">
+          <figure>
+            <img src="images/introduction-2.png" alt="Example of the same curve being created, one with 16 points, one with 6. The one with 6 is smoother in reality."/>
+            <figcaption>There is no reason to many vertices or edges when only a few will support the same subdivided curve.</figcaption>
+          </figure>
+          </a>
+        </div>
+      <p>There is a common misconception about subdivision modelling in that you can get around learning how the geometry works by simply creating a very high polygon control mesh, thus making the resulting subdivision mesh result in a very similar, slightly smoother mesh. This is a mistake and is the subject of a famous (in some circles at least) thread over on the Polycount forums that has been up for over 10 years at the time of writing this and is over 150 pages long. This approach is technically possible in certain cases, but often you lose the advantages that come with having a simple, organized, low polygon control mesh.</p>
+      
+      <p>The real goal in subdivision modelling is to use the minimum amount of geometry to support the shapes you are trying to create, and no more. This keeps your meshes easy to work with, and actually maximize the smoothness of the surfaces. Think about it like this: is it easier to keep a smooth consistent curve when you must modify 10 points, or 3 points?</p>
+      <p>Okay, let's get into some basic rules:</p>
+      <ul>
+          <li>8 edges is the minimum number for an actually circular curve.</li>
+          <li>Use the minimum amount of geometry you need to support the curves you're trying to create, no more.</li>
+          <li>Work on your model at the viewing distance it is intended to be viewed from.</li>
+          <li>Keep the polygons as regular in size and shape as possible.</li>
+          <li>Take advantage of flat(true) surfaces to clean up or terminate edges.</li>
+          <li>n-gons aren't that bad, and can be useful at junction and termination points.</li>
+      </ul>
+      <p>Let’s elaborate on these with some rules:</p>
+      <div class="entry align-right">
+          <a  href="images/introduction-3.jpg" target="_blank">
+          <figure>
+            <img src="images/introduction-3.jpg" alt="Example a 4, and an 8 sided hole through a cube after subdivision. The 4 sided hole is not circular, but at a distance it becomes hard to tell."/>
+            <figcaption>The 8 sided hole on the left is circular, but the 4 sided hole on the right can pass depending on the application.</figcaption>
+          </figure>
+          </a>
+        </div>
+      <p>It’s obvious in the model on the left that the 4-sided hole does not turn into a perfectly circular hole, but at a certain distance it becomes trivial and not worth adding the extra geometry to support the perfectly circular version.</p>
+      <p>Often, especially with normal map generation an edge as sharp as the real thing will not read as well when rendered out. When the edge becomes less than 1 pixel it will begin to alias as though there were no curve and you run into the problem we were trying to solve in the first place. So take into account the distance and resolution at which an object is intended to be viewed, and harden the edges according to your needs.</p>
+      <p>Yes, you can make any surface do exactly what you want with enough geometry. But they you’re just doing the work that you could be leaving to the subdivided geometry or should be using a sculpting program. You do need to plan your meshes so that you can have supporting edges in the right places when you need them, but a little planning can go a long way when you have to modify the model later.</p>
+      <p>When making a curved surface, sometimes you may have polygons in less than ideal distributions, but you must distribute them as evenly as possible or you will run into pinching or hard lines in the surface no matter how well you try to make the control mesh follow the curve, and again, you’re fighting with what the subdivision wants to do, which is to smooth everything out.</p>
+      <p>Flat surfaces with at least one supporting edge are essentially unaffected by subdivision. Even n-gons (polygons with more than 4 sides) can be dealt with provided they’re on a flat surface.</p>
+      <p>When you have an area of leftover supporting edges, flat surfaces are a great place to terminate them so that one supporting edge doesn’t have to cut through the entire rest of the model for no reason.</p>
+      <p>So now you should have a basic handle on subdivision modelling and some rules to follow. There is no way around practicing this style of modelling though, and you’ll never be able to intuitively grasp the way the geometry will react to subdivisions without many hours of work getting your hands dirty trying to model joining cylinders and surfaces. Try out some of our helpful <a href="exercises.html">guides and practice exercises</a>, and visit our <a href="reference.html">reference page</a> to view our library of high quality topology references!</p>
+    </article>
+    <footer>&copy; 2019 Evan Smith</footer>
+  </div>
+</body>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Hard Surface Topology
+  </title>
+  <meta name="description" content="ASSIGNMENT DESC">
+  <meta name="author" content="YOUR NAME">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+	<div class="wrapper">
+		<header>
+      <h1>Hard Surface Topology</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="introduction.html">Intro</a></li>
+          <li><a href="reference.html">Reference</a></li>
+          <li><a href="#"  class="current">Exercises</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="hero-image">
+    </div>
+    <article>
+      <div class="guide">
+        
+          <figure>
+              <a  href="images/reference-11.png" target="_blank">
+              <img class="align-left" src="images/reference-11.png" alt="The steps to capping a cylinder with only quads."/>
+              </a>
+              <div>
+              <h2>Capping a cylinder with only quads</h2>
+              <p>Typically a cylinder or any rounded surface is going to be capped with a single vertex in the center creating a triangle with each exterior edge of the circle. Provided the end is going to remain flat, and you are not planning on sculpting the mesh, this can be resolved by simply adding 2 supporting edges and the resulting pinching will be hidden by the flat top.</p>
+              <p>When you inevitably end up in a situation where you need to actually do anything with the geometry at the end of a cylinder, like having it nicely rounded, or need it to subdivide evenly to use in a sculpting application, you will likely want it capped with a regular mesh of quads instead of the default pie slices.</p>
+              <p>This process is very simple, and easy to do in any modelling application. Simply take the number of edges the cylinder is made of, and create a flat plane with the same number of exterior edges. Ideally this is a square number (24 edges would need a 6x6 plane, 36 edges would require 9x9). Sometimes you will have a stranger number, but as long as your cylinder geometry is consistent, and has an even number of edges you can use use any dimension of plane so long as the number of edges line up.</p>
+              <p>Then all you need to do is bridge the edges so that they line up in the neatest way possible.</p>
+              <p>To add a finishing touch and distribute the geometry a little nicer you can smooth out the vertecies from the top plane (The <em>relax modifier</em> in 3ds Max, most 3d applicaions have a similar function). And now you can impress your friends with how cleanly you terminate your cylinders.</p>
+              
+            </div>
+            <br class="clear"/>
+          </figure>
+      </div>
+      <div class="guide">
+        
+          <figure>
+              <a  href="images/exercise-1.jpg" target="_blank">
+              <img class="align-left" src="images/exercise-1.jpg" alt="Messy mesh of random lines cut into a rounded cube."/>
+              </a>
+              <h2>Improve the speed and accuracy of your work</h2>
+              <p>A very large amount of time in subdivision modelling is spent joining vertecies together to clean up the shapes and edges cut into a mesh. One of the ways you can improve your ability at this is to drill yourself on cleaning up messy meshes as a routine exercise to improve your speed over time. This also helps when you make changes, or add new tools to your workflow, to actually see the change or improvements over time. For example, it can be difficult to adopt a new hotkey (or sequence of hotkeys) even if you know it will make you work faster once you become used to it. Dedicated practice gives you an opportunity to learn new skills or workflows outside of interfering with actual projects you're working on</p>
+              <p>One such practice drill that was popularised by Grant Warwick (Sathe on the 3D Total forums. His Hard Surface Essentials videos are still freely available on Vimeo, and are likely the best primers on the subject that exists) Who supposedly did this almost every day for 2 years when he was getting started. Is to take a simple shape, or flat plane, and just cut random lines and shapes into it for a couple of seconds, or a minute to give you a messy mesh to begin with. Then all you need to do is use the <em>target weld</em> tool to clean up the mesh with an emphasis on trying to be as accurate as possible, not wasting mouse clicks or movements.</p>
+              <p>You can even save the initial messy mesh, and re-use it every time you do this, and if you time yourself you can objectively track your improvements over time.</p>
+            <br class="clear"/>
+          </figure>
+      </div>
+    </article>
+    <footer>&copy; 2019 Evan Smith</footer>
+  </div>
+</body>
