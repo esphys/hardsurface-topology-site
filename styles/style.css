@@ -1,133 +1,135 @@
 * {
-	color: #aaa;
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #aaa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 body {
-	background-image: url(../images/background.jpg);
-	margin-top: 20px;
+  background-image: url(../images/background.jpg);
+  margin-top: 20px;
 }
-.wrapper{
-	margin:0 auto;
-	width:960px;
-	height: 100%;
-	background-color: #111;
-	box-shadow: 0 0 2px #555;
+.wrapper {
+  margin: 0 auto;
+  width: 960px;
+  height: 100%;
+  background-color: #111;
+  box-shadow: 0 0 2px #555;
 }
 .hero-image {
-	width: 100%;
-	height: 400px;
-	background-image: url(../images/hero-image.jpg);
-	background-size: cover;
-	background-repeat: no-repeat;
-	text-align: right;
-	vertical-align: text-bottom;
+  width: 100%;
+  height: 400px;
+  background-image: url(../images/hero-image.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: right;
+  vertical-align: text-bottom;
 }
 .image2 {
-	background-image: url(../images/hero-image2.jpg);
-	background-position-y: center;
+  background-image: url(../images/hero-image2.jpg);
+  background-position-y: center;
 }
 .hero-image p {
-	padding: 5px;
+  padding: 5px;
 }
 .entry {
-	float: left;
-	width: 316px;
-	margin:2px;
-	background-color: #222;
-	box-shadow: 0 0 3px black;
-	transition: 0.3s;
+  float: left;
+  width: 316px;
+  margin: 2px;
+  background-color: #222;
+  box-shadow: 0 0 3px black;
+  transition: 0.3s;
 }
 .column {
-	float: left;
+  float: left;
 }
 .column-item {
-	width: 316px;
-	margin:2px;
-	background-color: #222;
-	box-shadow: 0 0 3px black;
-	transition: 0.3s;
+  width: 316px;
+  margin: 2px;
+  background-color: #222;
+  box-shadow: 0 0 3px black;
+  transition: 0.3s;
 }
 .guide {
-	float: left;
-	width: 916px;
-	background-color: #222;
-	box-shadow: 0 0 3px black;
-	margin-bottom: 5px;
+  float: left;
+  width: 916px;
+  background-color: #222;
+  box-shadow: 0 0 3px black;
+  margin-bottom: 5px;
 }
 .guide img {
-	transition: 0.3s;
+  transition: 0.3s;
 }
-.guide img:hover{
-	box-shadow: 0 0 3px rgb(19, 139, 73);
+.guide img:hover {
+  box-shadow: 0 0 3px rgb(19, 139, 73);
 }
 .column-item figure {
-	margin-top: 2px;
-	margin-bottom: 2px;
-	padding-top: 8px;
-	padding-bottom: 8px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 .column-item:hover {
-	box-shadow: 0 0 3px rgb(19, 139, 73);
+  box-shadow: 0 0 3px rgb(19, 139, 73);
 }
 .align-right {
-	float: right;
-	margin-left: 15px;
+  float: right;
+  margin-left: 15px;
 }
 .align-left {
-	float: left;
-	margin-right: 15px;
+  float: left;
+  margin-right: 15px;
 }
 .clear {
-	clear: both;
+  clear: both;
 }
-h1{
-	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-	font-size: 2.5rem;
-	margin: 0;
-	padding: 1rem;
-	color: rgb(19, 139, 73);
+h1 {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 2.5rem;
+  margin: 0;
+  padding: 1rem;
+  color: rgb(19, 139, 73);
 }
 article {
-	padding: 20px;
+  padding: 20px;
 }
 article h1 {
-	font-size: 2rem;
+  font-size: 2rem;
 }
 a {
-	text-decoration: none;
+  text-decoration: none;
 }
 p a {
-	text-decoration: underline;
-	color: rgb(19, 139, 73); 
+  text-decoration: underline;
+  color: rgb(19, 139, 73);
 }
 p a:visited {
-	color: rgb(94, 131, 111); 
+  color: rgb(94, 131, 111);
 }
 figure {
-	margin: 8px;
+  margin: 8px;
 }
 figure img {
-	display: block;
-	width: 300px;
-	box-shadow: 0 0 2px black;
+  display: block;
+  width: 300px;
+  box-shadow: 0 0 2px black;
 }
 figcaption {
-	background-color: #111;
-	box-shadow: 0 0 2px black;
-	padding: 8px;
-	text-align: center;
+  background-color: #111;
+  box-shadow: 0 0 2px black;
+  padding: 8px;
+  text-align: center;
 }
 .entry:hover {
-	box-shadow: 0 0 3px rgb(19, 139, 73);
+  box-shadow: 0 0 3px rgb(19, 139, 73);
 }
 nav li {
-	display: inline;
-	margin-right: 40px;
+  display: inline;
+  margin-right: 40px;
 }
-nav li a:hover, nav li a.current {
-	color: white;
+nav li a:hover,
+nav li a.current {
+  color: white;
 }
 footer {
-	padding: 5px;
-	clear: both;
+  padding: 5px;
+  clear: both;
 }
